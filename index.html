@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -14,21 +15,27 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: "Segoe UI", Arial, sans-serif;
             min-height: 100vh;
             overflow-x: hidden;
 
             background:
-                radial-gradient(circle at 50% 20%,
-                    rgba(255, 255, 210, 0.9),
-                    transparent 35%),
+                radial-gradient(
+                    circle at 50% 10%,
+                    rgba(255,255,255,.9),
+                    transparent 30%
+                ),
 
                 linear-gradient(
                     135deg,
-                    #fff4a8,
-                    #ffd95a,
-                    #f7b928
+                    #fff9c4 0%,
+                    #ffe477 45%,
+                    #ffc72c 100%
                 );
 
             color: #5b3208;
@@ -47,44 +54,50 @@
 
             background:
                 radial-gradient(
-                    circle at 20% 30%,
+                    circle at 15% 25%,
                     rgba(255,255,255,.45),
                     transparent 25%
                 ),
 
                 radial-gradient(
-                    circle at 80% 70%,
+                    circle at 85% 75%,
                     rgba(255,255,255,.35),
                     transparent 25%
                 );
         }
 
 
-        /* Luz */
-
         .light {
             position: absolute;
-            width: 350px;
-            height: 350px;
 
-            background: rgba(255,255,255,.18);
+            width: 400px;
+            height: 400px;
+
+            background: rgba(255,255,255,.20);
 
             border-radius: 50%;
-            filter: blur(20px);
 
-            animation: lightMove 8s infinite alternate ease-in-out;
+            filter: blur(30px);
+
+            animation:
+                lightMove 9s
+                infinite alternate ease-in-out;
         }
 
+
         .light:nth-child(1) {
-            top: -100px;
+            top: -150px;
             left: -100px;
         }
 
+
         .light:nth-child(2) {
-            right: -100px;
-            bottom: -100px;
+            right: -150px;
+            bottom: -150px;
+
             animation-delay: 2s;
         }
+
 
         @keyframes lightMove {
 
@@ -93,7 +106,7 @@
             }
 
             to {
-                transform: translate(50px,-30px);
+                transform: translate(70px,-40px);
             }
         }
 
@@ -104,28 +117,65 @@
 
         .sunflower {
             position: fixed;
+
             font-size: 130px;
-            opacity: .55;
+
+            opacity: .45;
+
             z-index: -1;
+
             filter: blur(1px);
+
+            pointer-events: none;
+
+            animation:
+                sunflowerFloat 6s
+                ease-in-out
+                infinite;
         }
+
 
         .sunflower.one {
             top: -35px;
             left: -35px;
+
             transform: rotate(-20deg);
         }
+
 
         .sunflower.two {
             bottom: -40px;
             right: -25px;
+
             transform: rotate(15deg);
+
+            animation-delay: 1.5s;
         }
+
 
         .sunflower.three {
             bottom: 20px;
             left: -50px;
+
             font-size: 100px;
+
+            animation-delay: 3s;
+        }
+
+
+        @keyframes sunflowerFloat {
+
+            0%,100% {
+                transform:
+                    translateY(0)
+                    rotate(-5deg);
+            }
+
+            50% {
+                transform:
+                    translateY(-12px)
+                    rotate(5deg);
+            }
         }
 
 
@@ -137,10 +187,11 @@
             min-height: 100vh;
 
             display: flex;
+
             justify-content: center;
             align-items: center;
 
-            padding: 50px 20px;
+            padding: 60px 20px;
         }
 
 
@@ -154,33 +205,85 @@
 
             min-height: 900px;
 
-            padding: 55px 50px 30px;
+            padding: 55px 50px 35px;
 
             text-align: center;
 
-            border-radius: 40px;
+            border-radius: 45px;
 
             background:
                 linear-gradient(
                     135deg,
-                    rgba(255,255,255,.65),
-                    rgba(255,249,203,.52)
+                    rgba(255,255,255,.78),
+                    rgba(255,249,203,.60)
                 );
 
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
+            backdrop-filter: blur(20px);
 
-            border: 2px solid rgba(255,255,255,.7);
+            -webkit-backdrop-filter: blur(20px);
+
+            border:
+                2px solid
+                rgba(255,255,255,.85);
 
             box-shadow:
-                0 30px 80px rgba(120,75,0,.22),
+
+                0 35px 100px
+                rgba(120,75,0,.25),
 
                 inset 0 1px 0
-                rgba(255,255,255,.8);
+                rgba(255,255,255,.9);
 
             position: relative;
 
             overflow: hidden;
+
+            animation:
+                cardAppear 1.2s
+                ease forwards;
+        }
+
+
+        @keyframes cardAppear {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    translateY(35px)
+                    scale(.96);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+        }
+
+
+        .card::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: -150px;
+            left: -150px;
+
+            width: 300px;
+            height: 300px;
+
+            background:
+                rgba(255,255,255,.35);
+
+            border-radius: 50%;
+
+            filter: blur(10px);
+
+            pointer-events: none;
         }
 
 
@@ -190,24 +293,39 @@
 
         .top-flower {
 
-            font-size: 70px;
+            font-size: 75px;
+
+            display: inline-block;
 
             animation:
                 flowerFloat 4s
                 ease-in-out
                 infinite;
 
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+
+            filter:
+                drop-shadow(
+                    0 8px 8px
+                    rgba(150,90,0,.18)
+                );
         }
+
 
         @keyframes flowerFloat {
 
             0%,100% {
-                transform: translateY(0) rotate(-3deg);
+
+                transform:
+                    translateY(0)
+                    rotate(-3deg);
             }
 
             50% {
-                transform: translateY(-10px) rotate(3deg);
+
+                transform:
+                    translateY(-12px)
+                    rotate(3deg);
             }
         }
 
@@ -220,30 +338,52 @@
 
             display: inline-block;
 
-            padding: 12px 30px;
+            padding: 13px 32px;
 
             border-radius: 50px;
 
             background:
                 linear-gradient(
                     135deg,
-                    #ffbf00,
+                    #ffc400,
                     #f39b00
                 );
 
             color: white;
 
-            font-weight: bold;
+            font-weight: 800;
 
-            font-size: 18px;
+            font-size: 17px;
 
             letter-spacing: 2px;
 
             box-shadow:
-                0 8px 25px
+                0 10px 28px
                 rgba(238,154,0,.35);
 
-            margin-bottom: 25px;
+            margin-bottom: 27px;
+
+            animation:
+                dateAppear 1s
+                ease .3s both;
+        }
+
+
+        @keyframes dateAppear {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    scale(.8);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    scale(1);
+            }
         }
 
 
@@ -260,13 +400,35 @@
 
             font-weight: 900;
 
-            margin-bottom: 20px;
+            margin-bottom: 22px;
 
             color: #63320a;
 
             text-shadow:
-                2px 3px 0
+                2px 4px 0
                 rgba(255,193,7,.45);
+
+            animation:
+                titleAppear 1s
+                ease .5s both;
+        }
+
+
+        @keyframes titleAppear {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
         }
 
 
@@ -281,12 +443,19 @@
                     90deg,
                     transparent,
                     #ffb300,
+                    #ffd54f,
+                    #ffb300,
                     transparent
                 );
 
             border-radius: 20px;
 
-            margin: 0 auto 30px;
+            margin:
+                0 auto 32px;
+
+            box-shadow:
+                0 3px 12px
+                rgba(255,179,0,.25);
         }
 
 
@@ -306,7 +475,7 @@
 
             color: #6b3d0b;
 
-            font-weight: 500;
+            font-weight: 600;
         }
 
 
@@ -332,7 +501,7 @@
 
             border: none;
 
-            padding: 18px 40px;
+            padding: 18px 42px;
 
             border-radius: 60px;
 
@@ -347,7 +516,7 @@
             background:
                 linear-gradient(
                     135deg,
-                    #ffbd00,
+                    #ffc107,
                     #f28c00
                 );
 
@@ -357,6 +526,44 @@
 
             transition:
                 .3s ease;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+
+        .button::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: -100%;
+
+            width: 70%;
+            height: 100%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255,255,255,.5),
+                    transparent
+                );
+
+            transform:
+                skewX(-20deg);
+
+            transition:
+                .6s ease;
+        }
+
+
+        .button:hover::before {
+
+            left: 130%;
         }
 
 
@@ -364,7 +571,7 @@
 
             transform:
                 translateY(-5px)
-                scale(1.04);
+                scale(1.05);
 
             box-shadow:
                 0 18px 40px
@@ -375,7 +582,7 @@
         .button:active {
 
             transform:
-                scale(.96);
+                scale(.95);
         }
 
 
@@ -385,20 +592,20 @@
 
         .message-box {
 
-            max-width: 650px;
+            max-width: 700px;
 
             margin: 30px auto 0;
 
-            padding: 25px;
+            padding: 28px;
 
-            border-radius: 25px;
+            border-radius: 28px;
 
             border:
                 2px dashed
-                rgba(242,155,0,.6);
+                rgba(242,155,0,.65);
 
             background:
-                rgba(255,246,178,.55);
+                rgba(255,246,178,.70);
 
             opacity: 0;
 
@@ -407,10 +614,15 @@
             overflow: hidden;
 
             transform:
-                translateY(20px);
+                translateY(20px)
+                scale(.95);
 
             transition:
-                all .7s ease;
+                all .8s ease;
+
+            box-shadow:
+                0 10px 30px
+                rgba(150,90,0,.10);
         }
 
 
@@ -418,18 +630,19 @@
 
             opacity: 1;
 
-            max-height: 200px;
+            max-height: 400px;
 
             transform:
-                translateY(0);
+                translateY(0)
+                scale(1);
         }
 
 
         .message-box p {
 
-            font-size: 21px;
+            font-size: 20px;
 
-            line-height: 1.6;
+            line-height: 1.75;
 
             font-weight: 600;
 
@@ -453,6 +666,31 @@
 
             align-items: center;
 
+            opacity: 0;
+
+            visibility: hidden;
+
+            transform:
+                translateY(40px)
+                scale(.80);
+
+            transition:
+                opacity .9s ease,
+                transform .9s ease,
+                visibility .9s ease;
+        }
+
+
+        .snoopy-container.show {
+
+            opacity: 1;
+
+            visibility: visible;
+
+            transform:
+                translateY(0)
+                scale(1);
+
             animation:
                 snoopyFloat 5s
                 ease-in-out
@@ -462,9 +700,9 @@
 
         .snoopy-image {
 
-            width: 330px;
+            width: 350px;
 
-            max-width: 75%;
+            max-width: 78%;
 
             height: auto;
 
@@ -472,8 +710,8 @@
 
             filter:
                 drop-shadow(
-                    0 15px 15px
-                    rgba(100,60,0,.18)
+                    0 18px 18px
+                    rgba(100,60,0,.20)
                 );
 
             transition:
@@ -484,7 +722,7 @@
         .snoopy-image:hover {
 
             transform:
-                scale(1.04)
+                scale(1.05)
                 rotate(-2deg);
         }
 
@@ -500,13 +738,13 @@
             50% {
 
                 transform:
-                    translateY(-8px);
+                    translateY(-10px);
             }
         }
 
 
         /* =========================
-           CORAZONES ALREDEDOR
+           CORAZONES
         ========================= */
 
         .heart {
@@ -519,29 +757,34 @@
                 heartFloat 3s
                 ease-in-out
                 infinite;
+
+            filter:
+                drop-shadow(
+                    0 4px 5px
+                    rgba(130,80,0,.15)
+                );
         }
 
 
         .heart.one {
 
-            left: 25%;
-
+            left: 23%;
             top: 20px;
         }
 
+
         .heart.two {
 
-            right: 24%;
-
-            top: 50px;
+            right: 22%;
+            top: 55px;
 
             animation-delay: 1s;
         }
 
+
         .heart.three {
 
-            left: 30%;
-
+            left: 29%;
             bottom: 10px;
 
             animation-delay: 1.5s;
@@ -556,13 +799,13 @@
                     translateY(0)
                     scale(1);
 
-                opacity: .6;
+                opacity: .65;
             }
 
             50% {
 
                 transform:
-                    translateY(-12px)
+                    translateY(-13px)
                     scale(1.2);
 
                 opacity: 1;
@@ -594,7 +837,7 @@
 
             position: fixed;
 
-            top: -30px;
+            top: -40px;
 
             pointer-events: none;
 
@@ -602,6 +845,8 @@
 
             animation:
                 fall linear forwards;
+
+            user-select: none;
         }
 
 
@@ -642,6 +887,8 @@
             animation:
                 sparkle 2s
                 infinite;
+
+            pointer-events: none;
         }
 
 
@@ -651,6 +898,7 @@
             left: 50px;
         }
 
+
         .sparkle.two {
 
             top: 200px;
@@ -658,6 +906,7 @@
 
             animation-delay: .7s;
         }
+
 
         .sparkle.three {
 
@@ -672,7 +921,7 @@
 
             0%,100% {
 
-                opacity: .4;
+                opacity: .35;
 
                 transform:
                     scale(.8)
@@ -684,8 +933,75 @@
                 opacity: 1;
 
                 transform:
-                    scale(1.2)
+                    scale(1.25)
                     rotate(20deg);
+            }
+        }
+
+
+        /* =========================
+           DESTELLOS
+        ========================= */
+
+        .shine {
+
+            position: absolute;
+
+            width: 10px;
+            height: 10px;
+
+            background: white;
+
+            border-radius: 50%;
+
+            opacity: .8;
+
+            animation:
+                shineMove 3s
+                infinite ease-in-out;
+
+            pointer-events: none;
+        }
+
+
+        .shine.one {
+            top: 80px;
+            right: 20%;
+        }
+
+
+        .shine.two {
+            top: 45%;
+            left: 12%;
+
+            animation-delay: 1s;
+        }
+
+
+        .shine.three {
+            bottom: 25%;
+            right: 12%;
+
+            animation-delay: 2s;
+        }
+
+
+        @keyframes shineMove {
+
+            0%,100% {
+
+                transform:
+                    scale(.5);
+
+                opacity: .3;
+            }
+
+            50% {
+
+                transform:
+                    scale(1.5);
+
+                opacity: 1;
             }
         }
 
@@ -701,43 +1017,62 @@
                 padding: 20px 10px;
             }
 
+
             .card {
+
+                width: 96%;
 
                 padding:
                     35px 20px 25px;
 
                 min-height: 800px;
 
-                border-radius: 28px;
+                border-radius: 30px;
             }
+
 
             .top-flower {
 
                 font-size: 55px;
             }
 
+
             .date {
 
-                font-size: 14px;
+                font-size: 13px;
 
                 padding:
-                    10px 20px;
+                    10px 18px;
+
+                letter-spacing: 1px;
             }
+
 
             h1 {
 
                 font-size: 48px;
+
+                line-height: 1.05;
             }
+
+
+            .underline {
+
+                width: 80%;
+            }
+
 
             .subtitle {
 
                 font-size: 18px;
             }
 
+
             .description {
 
                 font-size: 16px;
             }
+
 
             .button {
 
@@ -747,15 +1082,58 @@
                     15px 28px;
             }
 
+
+            .message-box {
+
+                padding: 22px 18px;
+            }
+
+
+            .message-box p {
+
+                font-size: 17px;
+
+                line-height: 1.65;
+            }
+
+
             .snoopy-image {
 
-                width: 270px;
+                width: 280px;
+
+                max-width: 85%;
             }
+
+
+            .heart.one {
+
+                left: 8%;
+            }
+
+
+            .heart.two {
+
+                right: 7%;
+            }
+
+
+            .heart.three {
+
+                left: 15%;
+            }
+
 
             .sparkle {
 
                 display: none;
             }
+
+
+            .sunflower {
+
+                opacity: .25;
+            }
+
         }
 
     </style>
@@ -779,11 +1157,17 @@
 
     <!-- Girasoles -->
 
-    <div class="sunflower one">🌻</div>
+    <div class="sunflower one">
+        🌻
+    </div>
 
-    <div class="sunflower two">🌻</div>
+    <div class="sunflower two">
+        🌻
+    </div>
 
-    <div class="sunflower three">🌻</div>
+    <div class="sunflower three">
+        🌻
+    </div>
 
 
     <!-- =========================
@@ -796,39 +1180,46 @@
         <section class="card">
 
 
+            <!-- Destellos -->
+
+            <div class="shine one"></div>
+            <div class="shine two"></div>
+            <div class="shine three"></div>
+
+
             <!-- Decoraciones -->
 
-            <div class="sparkle one">✦</div>
+            <div class="sparkle one">
+                ✦
+            </div>
 
-            <div class="sparkle two">♡</div>
+            <div class="sparkle two">
+                ♡
+            </div>
 
-            <div class="sparkle three">✦</div>
+            <div class="sparkle three">
+                ✦
+            </div>
 
 
             <!-- Flor superior -->
 
             <div class="top-flower">
-
                 🌻
-
             </div>
 
 
             <!-- Fecha -->
 
             <div class="date">
-
                 💛 &nbsp; 21 DE SEPTIEMBRE &nbsp; 💛
-
             </div>
 
 
             <!-- Titulo -->
 
             <h1>
-
                 Flores Amarillas
-
             </h1>
 
 
@@ -867,7 +1258,9 @@
             </button>
 
 
-            <!-- Mensaje -->
+            <!-- =========================
+                 MENSAJE
+            ========================= -->
 
             <div
                 class="message-box"
@@ -875,8 +1268,30 @@
 
                 <p>
 
-                    “Te regalo estas flores para recordarte
-                    lo especial que eres. 💛🌻”
+                    “Te regalo estas flores porque quiero
+                    que tengas un pequeño pedacito de alegría
+                    en este día. 🌻💛
+
+                    <br><br>
+
+                    Espero que cada vez que las veas recuerdes
+                    lo especial que eres y lo mucho que mereces
+                    sonreír, disfrutar los momentos bonitos y
+                    rodearte de cosas que hagan feliz tu corazón.
+
+                    <br><br>
+
+                    Tal vez unas flores parezcan un detalle
+                    sencillo, pero llevan todo mi cariño,
+                    mis mejores deseos y una pequeña razón
+                    para hacer tu día un poquito más bonito.
+
+                    <br><br>
+
+                    Gracias por ser una persona tan especial.
+                    Nunca dejes de brillar y de llenar de luz
+                    los días de quienes tienen la suerte
+                    de conocerte. 💛🌻✨”
 
                 </p>
 
@@ -887,47 +1302,40 @@
                  SNOOPY
             ========================= -->
 
-            <div class="snoopy-container">
+            <div class="snoopy-container"
+                 id="snoopy">
 
 
                 <div class="heart one">
-
                     💛
-
                 </div>
 
 
                 <div class="heart two">
-
                     💛
-
                 </div>
 
 
                 <div class="heart three">
-
                     🌻
-
                 </div>
 
 
                 <!--
                     IMPORTANTE:
 
-                    Guarda la imagen de Snoopy
-                    como:
+                    Guarda la imagen como:
 
                     snoopy-flores.png
 
                     en la misma carpeta
-                    que este HTML.
+                    que este archivo HTML.
                 -->
 
                 <img
                     src="snoopy-flores.png"
                     alt="Snoopy sosteniendo un ramo de flores amarillas"
                     class="snoopy-image">
-
 
             </div>
 
@@ -951,7 +1359,7 @@
 
 
         /* =========================
-           MENSAJE
+           MOSTRAR MENSAJE Y SNOOPY
         ========================= */
 
         function mostrarMensaje() {
@@ -959,9 +1367,14 @@
             const mensaje =
                 document.getElementById("mensaje");
 
-            mensaje.classList.toggle("show");
+            const snoopy =
+                document.getElementById("snoopy");
 
-            crearPetalos(30);
+            mensaje.classList.add("show");
+
+            snoopy.classList.add("show");
+
+            crearPetalos(40);
 
         }
 
@@ -986,10 +1399,21 @@
                     "petal";
 
 
+                const elementos = [
+                    "🌻",
+                    "💛",
+                    "🌼",
+                    "✨"
+                ];
+
+
                 petalo.innerHTML =
-                    Math.random() > .5
-                    ? "🌻"
-                    : "💛";
+                    elementos[
+                        Math.floor(
+                            Math.random() *
+                            elementos.length
+                        )
+                    ];
 
 
                 petalo.style.left =
@@ -1046,3 +1470,4 @@
 
 </body>
 </html>
+```
