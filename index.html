@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Flores Amarillas 🌻</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+
+            background:
+                radial-gradient(circle at 50% 20%,
+                    rgba(255, 255, 210, 0.9),
+                    transparent 35%),
+
+                linear-gradient(
+                    135deg,
+                    #fff4a8,
+                    #ffd95a,
+                    #f7b928
+                );
+
+            color: #5b3208;
+        }
+
+
+        /* =========================
+           FONDO
+        ========================= */
+
+        .background {
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 20% 30%,
+                    rgba(255,255,255,.45),
+                    transparent 25%
+                ),
+
+                radial-gradient(
+                    circle at 80% 70%,
+                    rgba(255,255,255,.35),
+                    transparent 25%
+                );
+        }
+
+
+        /* Luz */
+
+        .light {
+            position: absolute;
+            width: 350px;
+            height: 350px;
+
+            background: rgba(255,255,255,.18);
+
+            border-radius: 50%;
+            filter: blur(20px);
+
+            animation: lightMove 8s infinite alternate ease-in-out;
+        }
+
+        .light:nth-child(1) {
+            top: -100px;
+            left: -100px;
+        }
+
+        .light:nth-child(2) {
+            right: -100px;
+            bottom: -100px;
+            animation-delay: 2s;
+        }
+
+        @keyframes lightMove {
+
+            from {
+                transform: translate(0,0);
+            }
+
+            to {
+                transform: translate(50px,-30px);
+            }
+        }
+
+
+        /* =========================
+           GIRASOLES DECORATIVOS
+        ========================= */
+
+        .sunflower {
+            position: fixed;
+            font-size: 130px;
+            opacity: .55;
+            z-index: -1;
+            filter: blur(1px);
+        }
+
+        .sunflower.one {
+            top: -35px;
+            left: -35px;
+            transform: rotate(-20deg);
+        }
+
+        .sunflower.two {
+            bottom: -40px;
+            right: -25px;
+            transform: rotate(15deg);
+        }
+
+        .sunflower.three {
+            bottom: 20px;
+            left: -50px;
+            font-size: 100px;
+        }
+
+
+        /* =========================
+           CONTENEDOR
+        ========================= */
+
+        .page {
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 50px 20px;
+        }
+
+
+        /* =========================
+           TARJETA
+        ========================= */
+
+        .card {
+
+            width: min(900px, 95%);
+
+            min-height: 900px;
+
+            padding: 55px 50px 30px;
+
+            text-align: center;
+
+            border-radius: 40px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255,255,255,.65),
+                    rgba(255,249,203,.52)
+                );
+
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            border: 2px solid rgba(255,255,255,.7);
+
+            box-shadow:
+                0 30px 80px rgba(120,75,0,.22),
+
+                inset 0 1px 0
+                rgba(255,255,255,.8);
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+
+        /* =========================
+           GIRASOL SUPERIOR
+        ========================= */
+
+        .top-flower {
+
+            font-size: 70px;
+
+            animation:
+                flowerFloat 4s
+                ease-in-out
+                infinite;
+
+            margin-bottom: 10px;
+        }
+
+        @keyframes flowerFloat {
+
+            0%,100% {
+                transform: translateY(0) rotate(-3deg);
+            }
+
+            50% {
+                transform: translateY(-10px) rotate(3deg);
+            }
+        }
+
+
+        /* =========================
+           FECHA
+        ========================= */
+
+        .date {
+
+            display: inline-block;
+
+            padding: 12px 30px;
+
+            border-radius: 50px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffbf00,
+                    #f39b00
+                );
+
+            color: white;
+
+            font-weight: bold;
+
+            font-size: 18px;
+
+            letter-spacing: 2px;
+
+            box-shadow:
+                0 8px 25px
+                rgba(238,154,0,.35);
+
+            margin-bottom: 25px;
+        }
+
+
+        /* =========================
+           TITULO
+        ========================= */
+
+        h1 {
+
+            font-size:
+                clamp(48px, 8vw, 82px);
+
+            line-height: 1;
+
+            font-weight: 900;
+
+            margin-bottom: 20px;
+
+            color: #63320a;
+
+            text-shadow:
+                2px 3px 0
+                rgba(255,193,7,.45);
+        }
+
+
+        .underline {
+
+            width: 65%;
+
+            height: 8px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    #ffb300,
+                    transparent
+                );
+
+            border-radius: 20px;
+
+            margin: 0 auto 30px;
+        }
+
+
+        /* =========================
+           TEXTOS
+        ========================= */
+
+        .subtitle {
+
+            font-size: 24px;
+
+            line-height: 1.5;
+
+            max-width: 650px;
+
+            margin: auto;
+
+            color: #6b3d0b;
+
+            font-weight: 500;
+        }
+
+
+        .description {
+
+            font-size: 18px;
+
+            line-height: 1.8;
+
+            max-width: 680px;
+
+            margin: 30px auto;
+
+            color: #79501a;
+        }
+
+
+        /* =========================
+           BOTON
+        ========================= */
+
+        .button {
+
+            border: none;
+
+            padding: 18px 40px;
+
+            border-radius: 60px;
+
+            font-size: 20px;
+
+            font-weight: bold;
+
+            color: white;
+
+            cursor: pointer;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffbd00,
+                    #f28c00
+                );
+
+            box-shadow:
+                0 12px 30px
+                rgba(238,140,0,.35);
+
+            transition:
+                .3s ease;
+        }
+
+
+        .button:hover {
+
+            transform:
+                translateY(-5px)
+                scale(1.04);
+
+            box-shadow:
+                0 18px 40px
+                rgba(238,140,0,.45);
+        }
+
+
+        .button:active {
+
+            transform:
+                scale(.96);
+        }
+
+
+        /* =========================
+           MENSAJE
+        ========================= */
+
+        .message-box {
+
+            max-width: 650px;
+
+            margin: 30px auto 0;
+
+            padding: 25px;
+
+            border-radius: 25px;
+
+            border:
+                2px dashed
+                rgba(242,155,0,.6);
+
+            background:
+                rgba(255,246,178,.55);
+
+            opacity: 0;
+
+            max-height: 0;
+
+            overflow: hidden;
+
+            transform:
+                translateY(20px);
+
+            transition:
+                all .7s ease;
+        }
+
+
+        .message-box.show {
+
+            opacity: 1;
+
+            max-height: 200px;
+
+            transform:
+                translateY(0);
+        }
+
+
+        .message-box p {
+
+            font-size: 21px;
+
+            line-height: 1.6;
+
+            font-weight: 600;
+
+            color: #683707;
+        }
+
+
+        /* =========================
+           SNOOPY
+        ========================= */
+
+        .snoopy-container {
+
+            margin-top: 45px;
+
+            position: relative;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            animation:
+                snoopyFloat 5s
+                ease-in-out
+                infinite;
+        }
+
+
+        .snoopy-image {
+
+            width: 330px;
+
+            max-width: 75%;
+
+            height: auto;
+
+            object-fit: contain;
+
+            filter:
+                drop-shadow(
+                    0 15px 15px
+                    rgba(100,60,0,.18)
+                );
+
+            transition:
+                .4s ease;
+        }
+
+
+        .snoopy-image:hover {
+
+            transform:
+                scale(1.04)
+                rotate(-2deg);
+        }
+
+
+        @keyframes snoopyFloat {
+
+            0%,100% {
+
+                transform:
+                    translateY(0);
+            }
+
+            50% {
+
+                transform:
+                    translateY(-8px);
+            }
+        }
+
+
+        /* =========================
+           CORAZONES ALREDEDOR
+        ========================= */
+
+        .heart {
+
+            position: absolute;
+
+            font-size: 28px;
+
+            animation:
+                heartFloat 3s
+                ease-in-out
+                infinite;
+        }
+
+
+        .heart.one {
+
+            left: 25%;
+
+            top: 20px;
+        }
+
+        .heart.two {
+
+            right: 24%;
+
+            top: 50px;
+
+            animation-delay: 1s;
+        }
+
+        .heart.three {
+
+            left: 30%;
+
+            bottom: 10px;
+
+            animation-delay: 1.5s;
+        }
+
+
+        @keyframes heartFloat {
+
+            0%,100% {
+
+                transform:
+                    translateY(0)
+                    scale(1);
+
+                opacity: .6;
+            }
+
+            50% {
+
+                transform:
+                    translateY(-12px)
+                    scale(1.2);
+
+                opacity: 1;
+            }
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+
+            margin-top: 25px;
+
+            color: #86591c;
+
+            font-size: 15px;
+
+            letter-spacing: .5px;
+        }
+
+
+        /* =========================
+           PETALOS
+        ========================= */
+
+        .petal {
+
+            position: fixed;
+
+            top: -30px;
+
+            pointer-events: none;
+
+            z-index: 20;
+
+            animation:
+                fall linear forwards;
+        }
+
+
+        @keyframes fall {
+
+            from {
+
+                transform:
+                    translateY(-40px)
+                    rotate(0deg);
+
+                opacity: 1;
+            }
+
+            to {
+
+                transform:
+                    translateY(110vh)
+                    rotate(720deg);
+
+                opacity: 0;
+            }
+        }
+
+
+        /* =========================
+           ESTRELLAS
+        ========================= */
+
+        .sparkle {
+
+            position: absolute;
+
+            color: #f5a400;
+
+            font-size: 30px;
+
+            animation:
+                sparkle 2s
+                infinite;
+        }
+
+
+        .sparkle.one {
+
+            top: 150px;
+            left: 50px;
+        }
+
+        .sparkle.two {
+
+            top: 200px;
+            right: 50px;
+
+            animation-delay: .7s;
+        }
+
+        .sparkle.three {
+
+            bottom: 300px;
+            left: 80px;
+
+            animation-delay: 1s;
+        }
+
+
+        @keyframes sparkle {
+
+            0%,100% {
+
+                opacity: .4;
+
+                transform:
+                    scale(.8)
+                    rotate(0deg);
+            }
+
+            50% {
+
+                opacity: 1;
+
+                transform:
+                    scale(1.2)
+                    rotate(20deg);
+            }
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media(max-width:600px) {
+
+            .page {
+
+                padding: 20px 10px;
+            }
+
+            .card {
+
+                padding:
+                    35px 20px 25px;
+
+                min-height: 800px;
+
+                border-radius: 28px;
+            }
+
+            .top-flower {
+
+                font-size: 55px;
+            }
+
+            .date {
+
+                font-size: 14px;
+
+                padding:
+                    10px 20px;
+            }
+
+            h1 {
+
+                font-size: 48px;
+            }
+
+            .subtitle {
+
+                font-size: 18px;
+            }
+
+            .description {
+
+                font-size: 16px;
+            }
+
+            .button {
+
+                font-size: 17px;
+
+                padding:
+                    15px 28px;
+            }
+
+            .snoopy-image {
+
+                width: 270px;
+            }
+
+            .sparkle {
+
+                display: none;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         FONDO
+    ========================= -->
+
+    <div class="background">
+
+        <div class="light"></div>
+        <div class="light"></div>
+
+    </div>
+
+
+    <!-- Girasoles -->
+
+    <div class="sunflower one">🌻</div>
+
+    <div class="sunflower two">🌻</div>
+
+    <div class="sunflower three">🌻</div>
+
+
+    <!-- =========================
+         PAGINA
+    ========================= -->
+
+    <main class="page">
+
+
+        <section class="card">
+
+
+            <!-- Decoraciones -->
+
+            <div class="sparkle one">✦</div>
+
+            <div class="sparkle two">♡</div>
+
+            <div class="sparkle three">✦</div>
+
+
+            <!-- Flor superior -->
+
+            <div class="top-flower">
+
+                🌻
+
+            </div>
+
+
+            <!-- Fecha -->
+
+            <div class="date">
+
+                💛 &nbsp; 21 DE SEPTIEMBRE &nbsp; 💛
+
+            </div>
+
+
+            <!-- Titulo -->
+
+            <h1>
+
+                Flores Amarillas
+
+            </h1>
+
+
+            <div class="underline"></div>
+
+
+            <!-- Subtitulo -->
+
+            <p class="subtitle">
+
+                Porque hay personas que merecen recibir
+                un poquito de sol en forma de flores.
+
+            </p>
+
+
+            <!-- Descripcion -->
+
+            <p class="description">
+
+                Que estas flores amarillas representen
+                alegría, cariño, esperanza y todos esos
+                pequeños momentos que hacen especial la vida. 💛
+
+            </p>
+
+
+            <!-- Boton -->
+
+            <button
+                class="button"
+                onclick="mostrarMensaje()">
+
+                🌻 &nbsp; Tengo algo para ti
+
+            </button>
+
+
+            <!-- Mensaje -->
+
+            <div
+                class="message-box"
+                id="mensaje">
+
+                <p>
+
+                    “Te regalo estas flores para recordarte
+                    lo especial que eres. 💛🌻”
+
+                </p>
+
+            </div>
+
+
+            <!-- =========================
+                 SNOOPY
+            ========================= -->
+
+            <div class="snoopy-container">
+
+
+                <div class="heart one">
+
+                    💛
+
+                </div>
+
+
+                <div class="heart two">
+
+                    💛
+
+                </div>
+
+
+                <div class="heart three">
+
+                    🌻
+
+                </div>
+
+
+                <!--
+                    IMPORTANTE:
+
+                    Guarda la imagen de Snoopy
+                    como:
+
+                    snoopy-flores.png
+
+                    en la misma carpeta
+                    que este HTML.
+                -->
+
+                <img
+                    src="snoopy-flores.png"
+                    alt="Snoopy sosteniendo un ramo de flores amarillas"
+                    class="snoopy-image">
+
+
+            </div>
+
+
+            <!-- Footer -->
+
+            <footer>
+
+                Hecho con cariño · 21 de septiembre 💛
+
+            </footer>
+
+
+        </section>
+
+
+    </main>
+
+
+    <script>
+
+
+        /* =========================
+           MENSAJE
+        ========================= */
+
+        function mostrarMensaje() {
+
+            const mensaje =
+                document.getElementById("mensaje");
+
+            mensaje.classList.toggle("show");
+
+            crearPetalos(30);
+
+        }
+
+
+        /* =========================
+           PETALOS
+        ========================= */
+
+        function crearPetalos(cantidad) {
+
+            for (
+                let i = 0;
+                i < cantidad;
+                i++
+            ) {
+
+                const petalo =
+                    document.createElement("div");
+
+
+                petalo.className =
+                    "petal";
+
+
+                petalo.innerHTML =
+                    Math.random() > .5
+                    ? "🌻"
+                    : "💛";
+
+
+                petalo.style.left =
+                    Math.random() * 100 + "vw";
+
+
+                petalo.style.fontSize =
+                    (15 + Math.random() * 20)
+                    + "px";
+
+
+                petalo.style.animationDuration =
+                    (4 + Math.random() * 5)
+                    + "s";
+
+
+                petalo.style.animationDelay =
+                    Math.random() * 1.5
+                    + "s";
+
+
+                document.body.appendChild(
+                    petalo
+                );
+
+
+                setTimeout(
+                    () => petalo.remove(),
+                    10000
+                );
+
+            }
+
+        }
+
+
+        /* =========================
+           PETALOS AUTOMATICOS
+        ========================= */
+
+        setInterval(() => {
+
+            if (Math.random() > .35) {
+
+                crearPetalos(1);
+
+            }
+
+        }, 1200);
+
+
+    </script>
+
+
+</body>
+</html>
